@@ -1,3 +1,7 @@
+import { Crud } from "./components/Funciones";
+
+const { editAnimal, deleteAnimal } = Crud();
+
 export const COLUMNS = [
   {
     Header: "ID",
@@ -22,6 +26,18 @@ export const COLUMNS = [
   {
     Header: "Device Number",
     accessor: "deviceNumber",
+  },
+  {
+    Header: "Action",
+    accessor: (originalRow, rowIndex) => (
+      <div>
+        <button onClick={() => editAnimal(originalRow.id_number)}>Edit</button>
+        <button onClick={() => deleteAnimal(originalRow.id_number)}>
+          Delete
+        </button>
+      </div>
+    ),
+    id: "action",
   },
 ];
 
