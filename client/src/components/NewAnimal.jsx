@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Global from '../Global';
 import Modal from 'react-modal';
 
-export default function NewAnimal() {
+export default function NewAnimal({setFlag, setIsOpen, modalIsOpen}) {
 
     //Modal
     const styleBtn = {
@@ -25,10 +25,11 @@ export default function NewAnimal() {
         },
     };
     let subtitle;
-    const [modalIsOpen, setIsOpen] = useState(false);
+    // const [modalIsOpen, setIsOpen] = useState(false);
 
     function openModal() {
         setIsOpen(true);
+        setFlag(false);
     }
 
     function afterOpenModal() {
@@ -37,6 +38,8 @@ export default function NewAnimal() {
 
     function closeModal() {
         setIsOpen(false);
+        setFlag(true);
+
     }
 
     const url = Global.url
