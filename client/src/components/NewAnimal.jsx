@@ -89,6 +89,7 @@ export default function NewAnimal() {
 
     return (
         <>
+        {/* <AnimalModal flag="post" info={animal} /> */}
             <button style={styleBtn} onClick={openModal}> New Animal</button>
             <Modal
                 isOpen= {modalIsOpen}
