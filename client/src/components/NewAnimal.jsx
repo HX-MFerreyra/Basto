@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Global from '../Global';
 import AnimalModal from './AnimalModal';
 
-export default function NewAnimal({ setFlag, setIsOpen, modalIsOpen }) {
+export default function NewAnimal({  modalIsOpen , closeModal, openModal}) {
   const url = Global.url;
 
   const styleBtn = {
@@ -12,16 +12,6 @@ export default function NewAnimal({ setFlag, setIsOpen, modalIsOpen }) {
     borderRadius: '5px',
     padding: '5px',
   };
-
-  function openModal() {
-    setIsOpen(true);
-    setFlag(false);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-    setFlag(true);
-  }
 
   const [animal, setAnimal] = useState({
     typeOfAnimal: [],
@@ -41,7 +31,7 @@ export default function NewAnimal({ setFlag, setIsOpen, modalIsOpen }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    changeState();
+    changeState(e);
     //POST
     // url, más la función, màs nuestro estado
     //recordemos que funcionan con promesas
