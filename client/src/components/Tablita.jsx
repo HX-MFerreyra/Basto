@@ -55,7 +55,7 @@ export default function Tablita({flag, setIsOpen}) {
         getAnimals();
         console.log(animals);
     }, [animals.length, flag]);
-
+//djsfs
     const getAnimals = () => {
         axios.get(url).then((res) => {
             console.log(res.data);
