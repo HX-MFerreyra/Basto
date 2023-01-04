@@ -72,6 +72,8 @@ export default function Tablita({
       setAnimals(res.data.animals);
     });
   };
+  
+
   const deleteAnimal = (id) => {
     console.log(id);
     axios.delete(url + id).then((res) => {
@@ -117,7 +119,6 @@ export default function Tablita({
             );
           })}
         </tbody>
-      </table>
       <AnimalModal
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}
@@ -126,6 +127,7 @@ export default function Tablita({
         title="Edit Animal"
         changeState={setEdited}
       />
+      </table>
     </div>
   );
 }

@@ -3,19 +3,19 @@ import NewAnimal from './NewAnimal';
 import Tablita from './Tablita';
 
 export default function Home() {
-  const [flag, setFlag] = useState(false);
-  const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
-    setIsOpen(true);
-    setFlag(false);
-  }
+    const [editModal, setEditModal] = useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
-    setIsOpen(false);
-    setFlag(true);
-  }
+    function openModal() {
+        setIsOpen(true);
+    }
 
-  return (
+    function closeModal() {
+        setIsOpen(false);
+    
+    }
+
+    return (
     <>
       <h1>Animal Management</h1>
       <NewAnimal
@@ -25,9 +25,10 @@ export default function Home() {
       />
       <hr />
       <Tablita
-        modalIsOpen={modalIsOpen}
+        modalIsOpen={editModal}
         openModal={openModal}
         closeModal={closeModal}
+        
       />
     </>
   );

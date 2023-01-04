@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')
 const animalRoutes = require('./routes/animals');
+const cors = require('cors');
 
 const port = 3000;
 const url = 'mongodb+srv://melisaf:pass123@cluster0.nu1doki.mongodb.net/?retryWrites=true&w=majority'
@@ -21,13 +22,15 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 //CORS: to allow requests AJAX Y HTTP from the Front
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Allow', 'GET, POST, PUT, DELETE, OPTIONS');
-    next();
-})
+app.use(cors());
+
+//     (req, res, next) => {
+// //     res.header('Access-Control-Allow-Origin', '*');
+// //     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+// //     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+// //     res.header('Allow', 'GET, POST, PUT, DELETE, OPTIONS');
+// //     next();
+// // })
 
 //We upload the path files
 app.use('/animals', animalRoutes);

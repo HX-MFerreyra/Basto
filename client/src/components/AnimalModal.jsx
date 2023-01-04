@@ -24,6 +24,7 @@ export default function AnimalModal({closeModal, modalIsOpen, handleSubmit, data
     function afterOpenModal() {
         subtitle.style.color = '#000000';
     }
+    console.log(title);
 
     return (
         <div>
@@ -41,7 +42,7 @@ export default function AnimalModal({closeModal, modalIsOpen, handleSubmit, data
                             <input 
                                 type="text" 
                                 name="typeOfAnimal"
-                                value={data.typeOfdata}
+                                value={data.typeOfAnimal}
                                 onChange= {changeState} />
                         </label>
                     </div>
@@ -85,7 +86,7 @@ export default function AnimalModal({closeModal, modalIsOpen, handleSubmit, data
                                 onChange= {changeState} />
                         </label>
                     </div>
-                    <input type="submit" value={title === "New Animal" ? "Register" : "Edit"} style={styleBtn} />
+                    <input type="submit" value="confirm" style={styleBtn} />
                     <input type="button" value="Close" onClick={closeModal} style={styleBtn} />
                 </form>
             </Modal>
